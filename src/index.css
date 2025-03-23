@@ -1,68 +1,107 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import 'tailwindcss';
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --font-rimac: 'Rimac-Display', 'sans-serif';
+  --font-br-sonoma: 'BR-Sonoma', 'sans-serif';
+  --color-rimac-red: #f7052d;
+  --color-rimac-black: #03050f;
+  --color-rimac-white: #ffffff;
+  --color-rimac-grey: #05030f;
+  --color-rimac-purple: #621fff;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+.css-13cymwt-control {
+  padding: 10px 15px 10px 15px;
 }
-a:hover {
-  color: #535bf2;
+.react-select__control {
+  padding: 10px 15px 10px 15px;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff00;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #03050f;
+  border-radius: 10px;
+  border: 2px solid #03050f;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.slider-thumb::-webkit-slider-thumb {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  background-color: #621fff;
+  border-radius: 50%;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.slider-thumb::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  background-color: #621fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-thumb::-ms-thumb {
+  width: 30px;
+  height: 30px;
+  background-color: #621fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@keyframes drawCircle {
+  0% {
+    stroke-dasharray: 0 314; /* 314 is the approximate circumference of a circle with radius 50 */
+    stroke-dashoffset: 314; /* Start from the bottom */
   }
-  a:hover {
-    color: #747bff;
+  100% {
+    stroke-dasharray: 314 0;
+    stroke-dashoffset: 0;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+.animate-draw-circle {
+  animation: drawCircle 2s forwards;
+  stroke-linecap: round; /* Makes the ends of the stroke rounded */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
   }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes checkMark {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.animate-check {
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
