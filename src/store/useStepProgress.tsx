@@ -38,6 +38,11 @@ const initialState: useStepProgressState = {
     2: 'SlideInformation02',
     3: 'SlideInformation03',
     4: 'SlideSuccess01',
+    5: 'SlideInformation04',
+    6: 'SlideInformation05',
+    7: 'SlideInformation06',
+    8: 'SlideInformation07',
+    9: 'SlideSuccess02',
   },
   indexSlide: 0,
 };
@@ -70,13 +75,13 @@ export const useStepProgress = create(
             {
               title: 'Hábitos',
               state:
-                valor >= 4 ? (valor < 7 ? 'active' : 'completed') : 'inactive',
+                valor >= 4 ? (valor < 9 ? 'active' : 'completed') : 'inactive',
               img: '../icons/svgexport-8.svg',
             },
             {
               title: 'Enfermedades',
               state:
-                valor >= 7
+                valor >= 9
                   ? valor < 12 + sum
                     ? 'active'
                     : 'completed'

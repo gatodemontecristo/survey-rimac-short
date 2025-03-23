@@ -6,6 +6,10 @@ import {
   SlideInformation01,
   SlideInformation02,
   SlideInformation03,
+  SlideInformation04,
+  SlideInformation05,
+  SlideInformation06,
+  SlideInformation07,
   SlideSuccess01,
   SlideSuccess02,
 } from '../components';
@@ -17,6 +21,10 @@ const componentMap: Record<string, ReactNode> = {
   SlideInformation01: <SlideInformation01 />,
   SlideInformation02: <SlideInformation02 />,
   SlideInformation03: <SlideInformation03 />,
+  SlideInformation04: <SlideInformation04 />,
+  SlideInformation05: <SlideInformation05 />,
+  SlideInformation06: <SlideInformation06 />,
+  SlideInformation07: <SlideInformation07 />,
   SlideSuccess01: <SlideSuccess01 />,
   SlideSuccess02: <SlideSuccess02 />,
 };
