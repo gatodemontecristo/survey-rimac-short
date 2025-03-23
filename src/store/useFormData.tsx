@@ -30,7 +30,7 @@ export const useFormData = create(
       },
     }),
     {
-      name: 'form-survey',
+      name: 'form-survey-2',
     },
   ),
 );

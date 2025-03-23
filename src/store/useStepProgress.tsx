@@ -21,12 +21,12 @@ const initialState: useStepProgressState = {
       img: '../icons/svgexport-8.svg',
     },
     {
-      title: 'Enfermedades',
+      title: 'Salud',
       state: 'inactive',
       img: '../icons/svgexport-2.svg',
     },
     {
-      title: 'Familiares',
+      title: 'Antecendetes',
       state: 'inactive',
       img: '../icons/svgexport-247.svg',
     },
@@ -34,6 +34,10 @@ const initialState: useStepProgressState = {
   step: 0,
   slides: {
     0: 'SlideIntroduction',
+    1: 'SlideInformation01',
+    2: 'SlideInformation02',
+    3: 'SlideInformation03',
+    4: 'SlideSuccess01',
   },
   indexSlide: 0,
 };
@@ -60,13 +64,13 @@ export const useStepProgress = create(
           stepProgress: [
             {
               title: 'Sobre ti',
-              state: valor < 3 ? 'active' : 'completed',
+              state: valor < 4 ? 'active' : 'completed',
               img: '../icons/svgexport-118.svg',
             },
             {
               title: 'Hábitos',
               state:
-                valor >= 3 ? (valor < 7 ? 'active' : 'completed') : 'inactive',
+                valor >= 4 ? (valor < 7 ? 'active' : 'completed') : 'inactive',
               img: '../icons/svgexport-8.svg',
             },
             {
@@ -143,11 +147,11 @@ export const useStepProgress = create(
       },
       resetStepProgress: () => {
         set(initialState);
-        localStorage.removeItem('step-progress');
+        localStorage.removeItem('step-progress-2');
       },
     }),
     {
-      name: 'step-progress',
+      name: 'step-progress-2',
     },
   ),
 );
