@@ -1,4 +1,4 @@
-import { ButtomMobile, ButtonRimac } from '../atoms';
+import { ButtomMobile, ButtonAdd, ButtonRimac } from '../atoms';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -82,7 +82,6 @@ export const SlideInformation08 = () => {
     saveFormData(getValues());
     nextQuestion();
   };
-
   return (
     <div className='flex flex-row items-center justify-start w-4/5 gap-4 md:py-10 py-20 md:pr-15 pr-0 md:h-screen min-h-screen max-h-fit md:overflow-y-scroll custom-scrollbar'>
       <div className='flex flex-col items-start justify-start md:text-justify text-start gap-4 w-full'>
@@ -103,10 +102,14 @@ export const SlideInformation08 = () => {
               }
               placeholder='Selecciona un diagnóstico'
             ></SelectRimac>
-            <ButtonRimac
-              text='Añadir'
-              fnClick={handleAddDiagnosis}
-            ></ButtonRimac>
+            {isMobile ? (
+              <ButtonAdd fnClick={handleAddDiagnosis}></ButtonAdd>
+            ) : (
+              <ButtonRimac
+                text='Añadir'
+                fnClick={handleAddDiagnosis}
+              ></ButtonRimac>
+            )}
           </div>
         </QuestionRimac>
         <ItemCollection

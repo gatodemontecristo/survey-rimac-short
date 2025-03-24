@@ -10,3 +10,4 @@ export * from './RefreshRimac';
 export * from './ButtomMobile';
 export * from './InputRimac';
 export * from './ItemRimac';
+export * from './ButtonAdd';
