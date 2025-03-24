@@ -76,7 +76,8 @@ export const useStepProgress = create(
       ...initialState,
       actionStep: (isMore) => {
         const { slides } = get();
-        const sum = Object.keys(slides).length === 16 ? 1 : 0;
+        const sum = Object.keys(slides).length - 18;
+
         const valor = isMore ? get().step + 1 : get().step - 1;
         set({ step: valor });
         set({
@@ -93,7 +94,7 @@ export const useStepProgress = create(
               img: '../icons/svgexport-8.svg',
             },
             {
-              title: 'Enfermedades',
+              title: 'Salud',
               state:
                 valor >= 9
                   ? valor < 12 + sum
@@ -103,10 +104,10 @@ export const useStepProgress = create(
               img: '../icons/svgexport-2.svg',
             },
             {
-              title: 'Familiares',
+              title: 'Antecendetes',
               state:
                 valor >= 12 + sum
-                  ? valor < 14 + sum
+                  ? valor < 17 + sum
                     ? 'active'
                     : 'completed'
                   : 'inactive',
