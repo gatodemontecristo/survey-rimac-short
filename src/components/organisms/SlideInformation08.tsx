@@ -12,8 +12,8 @@ import { Notyf } from 'notyf';
 
 const schema = yup.object().shape({
   additionalDiag: yup.object({
-    label: yup.string().required('El label es obligatorio'),
-    value: yup.string().required('El value es obligatorio'),
+    label: yup.string(),
+    value: yup.string(),
   }),
   selectedDiagnoses: yup
     .array()
@@ -23,7 +23,9 @@ const schema = yup.object().shape({
 
 export const SlideInformation08 = () => {
   const { saveFormData, formData, removeSpecificFields } = useFormData();
-  const [selectedDiagnoses, setSelectedDiagnoses] = useState<ItemOption[]>([]);
+  const [selectedDiagnoses, setSelectedDiagnoses] = useState<ItemOption[]>(
+    formData.selectedDiagnoses || [],
+  );
   const {
     control,
     handleSubmit,

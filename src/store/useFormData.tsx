@@ -27,7 +27,7 @@ export const useFormData = create(
       },
       resetForm: () => {
         set(initialState);
-        localStorage.removeItem('form-survey');
+        localStorage.removeItem('form-survey-2');
       },
       removeSpecificFields: () => {
         set((state) => {

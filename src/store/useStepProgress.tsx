@@ -47,6 +47,12 @@ const initialState: useStepProgressState = {
     9: 'SlideSuccess02',
     10: 'SlideInformation08',
     11: 'SlideInformation09',
+    12: 'SlideSuccess03',
+    13: 'SlideInformation10',
+    14: 'SlideInformation11',
+    15: 'SlideInformation12',
+    16: 'SlideInformation13',
+    17: 'SlideFinish',
   },
   indexSlide: 0,
   indexExtra: 0,
@@ -118,15 +124,25 @@ export const useStepProgress = create(
         setIndexSlide(step + 1);
       },
       backQuestion: () => {
-        const { step, setIndexSlide, actionStep } = get();
+        const {
+          step,
+          setIndexSlide,
+          indexSlide,
+          actionStep,
+          slides,
+          indexExtra,
+          setExtra,
+        } = get();
         if (step > 0) {
+          Object.keys(slides).length > 18 &&
+            indexExtra !== 0 &&
+            10 + indexExtra >= indexSlide - 1 &&
+            setExtra(indexExtra - 1);
           actionStep(false);
           setIndexSlide(step - 1);
         }
       },
-      // nextSlide: () => {
-      //   return get().slides[get().step] || null;
-      // },
+
       addSlide: (pages: number) => {
         const { slides, setIndexSlide } = get();
         set({ originalSlides: { ...slides } });

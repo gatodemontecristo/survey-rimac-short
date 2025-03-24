@@ -4,6 +4,7 @@ import { useStepProgress } from '../store';
 import {
   ButtonRimac,
   SlideExtra,
+  SlideFinish,
   SlideInformation01,
   SlideInformation02,
   SlideInformation03,
@@ -13,8 +14,13 @@ import {
   SlideInformation07,
   SlideInformation08,
   SlideInformation09,
+  SlideInformation10,
+  SlideInformation11,
+  SlideInformation12,
+  SlideInformation13,
   SlideSuccess01,
   SlideSuccess02,
+  SlideSuccess03,
 } from '../components';
 import { SlideIntroduction } from '../components';
 import { ReactNode } from 'react';
@@ -30,9 +36,15 @@ const componentMap: Record<string, ReactNode> = {
   SlideInformation07: <SlideInformation07 />,
   SlideInformation08: <SlideInformation08 />,
   SlideInformation09: <SlideInformation09 />,
+  SlideInformation10: <SlideInformation10 />,
+  SlideInformation11: <SlideInformation11 />,
+  SlideInformation12: <SlideInformation12 />,
+  SlideInformation13: <SlideInformation13 />,
   SlideSuccess01: <SlideSuccess01 />,
   SlideSuccess02: <SlideSuccess02 />,
+  SlideSuccess03: <SlideSuccess03 />,
   SlideExtra: <SlideExtra />,
+  SlideFinish: <SlideFinish />,
 };
 export const SurveyMain = () => {
   const { backQuestion, indexSlide, slides, step } = useStepProgress();

@@ -63,3 +63,13 @@ export const optionTreatment: ItemOption[] = [
   { value: '8', label: 'Otros' },
   { value: '9', label: 'Ninguno' },
 ];
+
+export const optionConditions: ItemOption[] = [
+  { value: '1', label: 'Crisis por hipertensión arterial' },
+  { value: '2', label: 'Accidente cerebrovascular' },
+  { value: '3', label: 'Diabetes' },
+  { value: '4', label: 'Enfermedad Tromboembólica' },
+  { value: '5', label: 'Asma' },
+  { value: '6', label: 'Insuficiencia cardiaca' },
+  { value: '7', label: 'No' },
+];
