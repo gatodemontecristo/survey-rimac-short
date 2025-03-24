@@ -7,6 +7,8 @@ export interface useStepProgressState {
   step: number;
   slides: { [key: number]: string };
   indexSlide: number;
+  indexExtra: number;
+  originalSlides: { [key: number]: string } | null;
 }
 const initialState: useStepProgressState = {
   stepProgress: [
@@ -43,17 +45,23 @@ const initialState: useStepProgressState = {
     7: 'SlideInformation06',
     8: 'SlideInformation07',
     9: 'SlideSuccess02',
+    10: 'SlideInformation08',
+    11: 'SlideInformation09',
   },
   indexSlide: 0,
+  indexExtra: 0,
+
+  originalSlides: null,
 };
 export interface useStepProgressAction {
   actionStep: (isMore: boolean) => void;
   setIndexSlide: (indexSlide: number) => void;
   nextQuestion: () => void;
   backQuestion: () => void;
-  addSlide: () => void;
+  addSlide: (pages: number) => void;
   removeSlide: () => void;
   resetStepProgress: () => void;
+  setExtra: (indexExtra: number) => void;
 }
 
 export const useStepProgress = create(
@@ -110,18 +118,8 @@ export const useStepProgress = create(
         setIndexSlide(step + 1);
       },
       backQuestion: () => {
-        const {
-          step,
-          setIndexSlide,
-          actionStep,
-          slides,
-          removeSlide,
-          indexSlide,
-        } = get();
+        const { step, setIndexSlide, actionStep } = get();
         if (step > 0) {
-          Object.keys(slides).length === 16 &&
-            indexSlide === 10 &&
-            removeSlide();
           actionStep(false);
           setIndexSlide(step - 1);
         }
@@ -129,30 +127,33 @@ export const useStepProgress = create(
       // nextSlide: () => {
       //   return get().slides[get().step] || null;
       // },
-      addSlide: () => {
-        const { slides } = get();
+      addSlide: (pages: number) => {
+        const { slides, setIndexSlide } = get();
+        set({ originalSlides: { ...slides } });
+        setIndexSlide(pages);
         const updatedSlides = { ...slides };
 
-        for (let i = Object.keys(updatedSlides).length - 1; i >= 10; i--) {
-          updatedSlides[i + 1] = updatedSlides[i];
+        for (let i = Object.keys(updatedSlides).length - 1; i >= 11; i--) {
+          updatedSlides[i + pages] = updatedSlides[i];
         }
-        updatedSlides[10] = 'SlideAdditional';
+        for (let i = 0; i < pages; i++) {
+          updatedSlides[11 + i] = 'SlideExtra';
+        }
         set({ slides: updatedSlides });
       },
       removeSlide: () => {
-        const { slides } = get();
-        const updatedSlides = { ...slides };
-        delete updatedSlides[10];
-        for (let i = 11; i < Object.keys(updatedSlides).length; i++) {
-          updatedSlides[i - 1] = updatedSlides[i];
+        const { originalSlides, setExtra } = get();
+        if (originalSlides) {
+          setExtra(0);
+          set({ slides: originalSlides });
         }
-        delete updatedSlides[Object.keys(updatedSlides).length - 1];
-
-        set({ slides: updatedSlides });
       },
       resetStepProgress: () => {
         set(initialState);
         localStorage.removeItem('step-progress-2');
+      },
+      setExtra: (indexExtra) => {
+        set({ indexExtra });
       },
     }),
     {

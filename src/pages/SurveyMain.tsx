@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useStepProgress } from '../store';
 import {
   ButtonRimac,
+  SlideExtra,
   SlideInformation01,
   SlideInformation02,
   SlideInformation03,
@@ -10,6 +11,8 @@ import {
   SlideInformation05,
   SlideInformation06,
   SlideInformation07,
+  SlideInformation08,
+  SlideInformation09,
   SlideSuccess01,
   SlideSuccess02,
 } from '../components';
@@ -25,8 +28,11 @@ const componentMap: Record<string, ReactNode> = {
   SlideInformation05: <SlideInformation05 />,
   SlideInformation06: <SlideInformation06 />,
   SlideInformation07: <SlideInformation07 />,
+  SlideInformation08: <SlideInformation08 />,
+  SlideInformation09: <SlideInformation09 />,
   SlideSuccess01: <SlideSuccess01 />,
   SlideSuccess02: <SlideSuccess02 />,
+  SlideExtra: <SlideExtra />,
 };
 export const SurveyMain = () => {
   const { backQuestion, indexSlide, slides, step } = useStepProgress();

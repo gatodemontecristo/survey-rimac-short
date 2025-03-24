@@ -10,6 +10,7 @@ const initialState: useFormDataState = {
 interface useFormDataAction {
   saveFormData: (data: Record<any, any>) => void;
   resetForm: () => void;
+  removeSpecificFields: () => void;
 }
 
 export const useFormData = create(
@@ -27,6 +28,27 @@ export const useFormData = create(
       resetForm: () => {
         set(initialState);
         localStorage.removeItem('form-survey');
+      },
+      removeSpecificFields: () => {
+        set((state) => {
+          const updatedFormData = Object.keys(state.formData)
+            .filter(
+              (key) =>
+                !key.includes('center') &&
+                !key.includes('surgeon') &&
+                !key.includes('result'),
+            )
+            .reduce(
+              (acc, key) => {
+                acc[key] = state.formData[key];
+                return acc;
+              },
+              {} as Record<any, any>,
+            );
+
+          localStorage.setItem('formData', JSON.stringify(updatedFormData));
+          return { formData: updatedFormData };
+        });
       },
     }),
     {
