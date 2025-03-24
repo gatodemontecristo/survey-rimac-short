@@ -6,3 +6,4 @@ export * from './InputForm';
 export * from './AreaForm';
 export * from './SliderForm';
 export * from './MultiCheckboxForm';
+export * from './ItemCollection';

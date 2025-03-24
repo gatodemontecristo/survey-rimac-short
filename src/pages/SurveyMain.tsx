@@ -1,16 +1,54 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { useStepProgress } from '../store';
-import { ButtonRimac } from '../components';
+import {
+  ButtonRimac,
+  SlideExtra,
+  SlideFinish,
+  SlideInformation01,
+  SlideInformation02,
+  SlideInformation03,
+  SlideInformation04,
+  SlideInformation05,
+  SlideInformation06,
+  SlideInformation07,
+  SlideInformation08,
+  SlideInformation09,
+  SlideInformation10,
+  SlideInformation11,
+  SlideInformation12,
+  SlideInformation13,
+  SlideSuccess01,
+  SlideSuccess02,
+  SlideSuccess03,
+} from '../components';
 import { SlideIntroduction } from '../components';
 import { ReactNode } from 'react';
 
 const componentMap: Record<string, ReactNode> = {
   SlideIntroduction: <SlideIntroduction />,
+  SlideInformation01: <SlideInformation01 />,
+  SlideInformation02: <SlideInformation02 />,
+  SlideInformation03: <SlideInformation03 />,
+  SlideInformation04: <SlideInformation04 />,
+  SlideInformation05: <SlideInformation05 />,
+  SlideInformation06: <SlideInformation06 />,
+  SlideInformation07: <SlideInformation07 />,
+  SlideInformation08: <SlideInformation08 />,
+  SlideInformation09: <SlideInformation09 />,
+  SlideInformation10: <SlideInformation10 />,
+  SlideInformation11: <SlideInformation11 />,
+  SlideInformation12: <SlideInformation12 />,
+  SlideInformation13: <SlideInformation13 />,
+  SlideSuccess01: <SlideSuccess01 />,
+  SlideSuccess02: <SlideSuccess02 />,
+  SlideSuccess03: <SlideSuccess03 />,
+  SlideExtra: <SlideExtra />,
+  SlideFinish: <SlideFinish />,
 };
 export const SurveyMain = () => {
   const { backQuestion, indexSlide, slides, step } = useStepProgress();
-  const sum = Object.keys(slides).length === 16 ? 1 : 0;
+  const sum = Object.keys(slides).length - 18;
 
   const getComponentByIndex = () => {
     const componentName = slides[step];
@@ -33,12 +71,12 @@ export const SurveyMain = () => {
             alt='logo'
             className='absolute top-5 right-5 w-16 md:w-20'
           ></img>
-          {step !== 0 && step !== 14 + sum && (
+          {step !== 0 && step !== 17 + sum && (
             <div className='md:py-10 py-5 absolute top-0 md:left-20 left-5 w-auto'>
               <ButtonRimac isNav={true} fnClick={backQuestion}></ButtonRimac>
             </div>
           )}
-          {getComponentByIndex() || <div>No se econtro</div>}
+          {getComponentByIndex() || <div>No se encontró</div>}
         </motion.div>
       </AnimatePresence>
     </div>
