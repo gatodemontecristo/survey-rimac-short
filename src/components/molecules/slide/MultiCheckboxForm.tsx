@@ -1,9 +1,9 @@
 import { CheckboxRimac, ErrorMsg } from '../../atoms';
-import { ItemOption, ReactFormProps } from '../../../types';
+import { ItemOption, ItemOptionInfo, ReactFormProps } from '../../../types';
 import { Controller } from 'react-hook-form';
 
 interface MultiCheckboxFormProps extends ReactFormProps {
-  options: ItemOption[];
+  options: ItemOption[] | ItemOptionInfo[];
 }
 export const MultiCheckboxForm = ({
   options,

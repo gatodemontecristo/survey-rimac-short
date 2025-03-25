@@ -1,4 +1,4 @@
-import { ItemOption } from '../types';
+import { ItemOption, ItemOptionInfo } from '../types';
 
 export const optionGender: ItemOption[] = [
   { value: 'F', label: 'Femenino' },
@@ -45,11 +45,23 @@ export const optionResult: ItemOption[] = [
   { value: '2', label: 'No resuelto' },
 ];
 
-export const optionMedicine: ItemOption[] = [
-  { value: '1', label: 'Benzodiazepinas' },
-  { value: '2', label: 'Antihipertensivos' },
-  { value: '3', label: 'Antidiabéticos' },
-  { value: '4', label: 'Ninguno' },
+export const optionMedicine: ItemOptionInfo[] = [
+  {
+    value: '1',
+    label: 'Benzodiazepinas',
+    info: 'Se toma para tratar la ansiedad, insomnio o similares. Por ejemplo: Valium, Xanax',
+  },
+  {
+    value: '2',
+    label: 'Antihipertensivos',
+    info: 'Para tratar la presión arterial alta. Por ejemplo: Vasotec, Cozaar',
+  },
+  {
+    value: '3',
+    label: 'Antidiabéticos',
+    info: 'Para controlar el nivel deazúcar en la sangre de quienes tienen diabetes. Por ejemplo: metformina, insulina',
+  },
+  { value: '4', label: 'Ninguno', info: '' },
 ];
 
 export const optionTreatment: ItemOption[] = [

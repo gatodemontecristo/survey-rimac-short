@@ -36,6 +36,7 @@ export const useFormData = create(
               (key) =>
                 !key.includes('center') &&
                 !key.includes('surgeon') &&
+                !key.includes('date') &&
                 !key.includes('result'),
             )
             .reduce(

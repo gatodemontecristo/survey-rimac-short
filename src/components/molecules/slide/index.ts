@@ -7,3 +7,4 @@ export * from './AreaForm';
 export * from './SliderForm';
 export * from './MultiCheckboxForm';
 export * from './ItemCollection';
+export * from './DateForm';
