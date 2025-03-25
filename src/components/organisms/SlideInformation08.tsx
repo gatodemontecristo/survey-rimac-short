@@ -82,14 +82,23 @@ export const SlideInformation08 = () => {
     saveFormData(getValues());
     nextQuestion();
   };
+  const textSize = isMobile ? 'text-2xl' : 'text-4xl';
   return (
     <div className='flex flex-row items-center justify-start w-4/5 gap-4 md:py-10 py-20 md:pr-15 pr-0 md:h-screen min-h-screen max-h-fit md:overflow-y-scroll custom-scrollbar'>
       <div className='flex flex-col items-start justify-start md:text-justify text-start gap-4 w-full'>
+        <QuestionRimac className='mb-4 '>
+          <QuestionRimac.Label
+            size={textSize}
+            text='Ahora, quisiéramos saber sobre tu '
+            special='estado de salud'
+          ></QuestionRimac.Label>
+        </QuestionRimac>
         <QuestionRimac className='w-full'>
           <QuestionRimac.Label
             size={textLabel}
-            text='¿Padeces o padeciste alguna enfermedad que requiera o haya requerido medicación o tratamiento? De ser el caso por favor brindanos más detalle'
+            text='¿Padeces o padeciste alguna enfermedad que requiera o haya requerido medicación o tratamiento? '
           ></QuestionRimac.Label>
+          <QuestionRimac.Info text='De ser el caso por favor brindanos más detalle'></QuestionRimac.Info>
           <div className='flex flex-row gap-4'>
             <SelectRimac
               {...{ control }}

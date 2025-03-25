@@ -35,9 +35,18 @@ export const SlideInformation10 = () => {
 
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const textLabel = isMobile ? 'text-xl' : 'text-2xl';
+  const textSize = isMobile ? 'text-2xl' : 'text-4xl';
   return (
     <div className='flex flex-row items-center justify-center w-4/5 gap-4 md:py-10 py-20 md:pr-15 pr-0 md:h-screen min-h-screen max-h-fit md:overflow-y-scroll  custom-scrollbar'>
       <div className='flex flex-col items-start justify-start md:text-justify text-start    gap-4 w-full'>
+        <QuestionRimac className='mb-4 '>
+          <QuestionRimac.Label
+            size={textSize}
+            text='quisiéramos saber tus antecedentes y otras condiciones de salud'
+            special='Para terminar, '
+            reverse={true}
+          ></QuestionRimac.Label>
+        </QuestionRimac>
         <QuestionRimac className=' w-full'>
           <QuestionRimac.Label
             size={textLabel}

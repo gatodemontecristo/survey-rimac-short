@@ -69,16 +69,17 @@ export const SlideExtra = () => {
   };
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const textLabel = isMobile ? 'text-xl' : 'text-2xl';
+  const containerSize = isMobile ? 'w-full' : 'w-2/3';
 
   return (
-    <div className='flex flex-row items-center justify-start w-4/5 gap-4 py-25 md:py-10  md:h-screen min-h-screen max-h-fit md:overflow-y-scroll custom-scrollbar'>
+    <div className='flex flex-row items-start justify-start w-4/5 gap-4 py-25 md:py-10  md:h-screen min-h-screen max-h-fit md:overflow-y-scroll custom-scrollbar'>
       <div className='flex flex-col items-start justify-start md:text-justify text-start ms-4  gap-6 w-full'>
         <LabelRimac
           size='text-3xl'
           text=''
           special={formData.selectedDiagnoses[indexExtra].label}
         ></LabelRimac>
-        <QuestionRimac className=' w-2/3'>
+        <QuestionRimac className={containerSize}>
           <QuestionRimac.Label
             size={textLabel}
             text='Centro de atención'
@@ -101,7 +102,7 @@ export const SlideExtra = () => {
             className='w-full'
           />
         </QuestionRimac>
-        <QuestionRimac className='w-2/3'>
+        <QuestionRimac className={containerSize}>
           <QuestionRimac.Label
             size={textLabel}
             text='Fecha de atención'

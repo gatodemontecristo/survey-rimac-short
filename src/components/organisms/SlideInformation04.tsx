@@ -32,10 +32,18 @@ export const SlideInformation04 = () => {
     nextQuestion();
   };
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const textSize = isMobile ? 'text-2xl' : 'text-4xl';
   const textLabel = isMobile ? 'text-xl' : 'text-2xl';
   return (
     <div className='flex flex-row items-center justify-start w-4/5 gap-4 py-20 md:py-10  md:h-screen  min-h-[85vh] max-h-fit md:overflow-y-scroll custom-scrollbar'>
       <div className='flex flex-col items-start justify-start md:text-justify text-start   gap-4 w-full'>
+        <QuestionRimac className='mb-4'>
+          <QuestionRimac.Label
+            size={textSize}
+            text='Para continuar, queremos que nos cuentes sobre '
+            special='tus hábitos'
+          ></QuestionRimac.Label>
+        </QuestionRimac>
         <QuestionRimac className='mb-4'>
           <QuestionRimac.Label
             size={textLabel}
