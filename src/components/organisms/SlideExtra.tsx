@@ -3,7 +3,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 
-import { InputForm, QuestionRimac, RadioCollection } from '../molecules';
+import {
+  DateForm,
+  InputForm,
+  QuestionRimac,
+  RadioCollection,
+} from '../molecules';
 import { useFormData, useStepProgress } from '../../store';
 import { useMediaQuery } from 'react-responsive';
 import { optionResult, optionYN } from '../../constants';
@@ -16,6 +21,10 @@ export const SlideExtra = () => {
       .string()
       .typeError('Debes ingresar un centro de atención')
       .required('Debes ingresar un centro de atención'),
+    [formData.selectedDiagnoses[indexExtra].value + '-date']: yup
+      .string()
+      .typeError('Debes ingresar una fecha de atención')
+      .required('Debes ingresar una fecha de atención'),
     [formData.selectedDiagnoses[indexExtra].value + '-surgeon']: yup
       .string()
       .required('Debes seleccionar una opción'),
@@ -37,7 +46,8 @@ export const SlideExtra = () => {
       [formData.selectedDiagnoses[indexExtra].value + '-result']:
         formData[formData.selectedDiagnoses[indexExtra].value + '-result'] ||
         '',
-
+      [formData.selectedDiagnoses[indexExtra].value + '-date']:
+        formData[formData.selectedDiagnoses[indexExtra].value + '-date'] || '',
       [formData.selectedDiagnoses[indexExtra].value + '-center']:
         formData[formData.selectedDiagnoses[indexExtra].value + '-center'] ||
         '',
@@ -59,20 +69,16 @@ export const SlideExtra = () => {
   };
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const textLabel = isMobile ? 'text-xl' : 'text-2xl';
-  console.log('errors', errors);
-  console.log(
-    'formData.selectedDiagnoses[indexExtra].value',
-    formData.selectedDiagnoses[indexExtra].value,
-  );
+
   return (
     <div className='flex flex-row items-center justify-start w-4/5 gap-4 py-25 md:py-10  md:h-screen min-h-screen max-h-fit md:overflow-y-scroll custom-scrollbar'>
-      <div className='flex flex-col items-start justify-start md:text-justify text-start   gap-8 w-full'>
+      <div className='flex flex-col items-start justify-start md:text-justify text-start ms-4  gap-6 w-full'>
         <LabelRimac
           size='text-3xl'
           text=''
           special={formData.selectedDiagnoses[indexExtra].label}
         ></LabelRimac>
-        <QuestionRimac className='ms-5 w-2/3'>
+        <QuestionRimac className=' w-2/3'>
           <QuestionRimac.Label
             size={textLabel}
             text='Centro de atención'
@@ -95,7 +101,29 @@ export const SlideExtra = () => {
             className='w-full'
           />
         </QuestionRimac>
-        <QuestionRimac className='ms-5'>
+        <QuestionRimac className='w-2/3'>
+          <QuestionRimac.Label
+            size={textLabel}
+            text='Fecha de atención'
+          ></QuestionRimac.Label>
+
+          <DateForm
+            {...{ control }}
+            name={formData.selectedDiagnoses[indexExtra].value + '-date'}
+            placeholder='Fecha de atención'
+            message={
+              typeof errors[
+                formData.selectedDiagnoses[indexExtra].value + '-date'
+              ]?.message === 'string'
+                ? (errors[
+                    formData.selectedDiagnoses[indexExtra].value + '-date'
+                  ]?.message as string)
+                : undefined
+            }
+          ></DateForm>
+        </QuestionRimac>
+
+        <QuestionRimac>
           <QuestionRimac.Label
             size={textLabel}
             text='¿Se ha operado?'
@@ -115,7 +143,7 @@ export const SlideExtra = () => {
             }
           />
         </QuestionRimac>
-        <QuestionRimac className='ms-5'>
+        <QuestionRimac>
           <QuestionRimac.Label
             size={textLabel}
             text='Estado actual'

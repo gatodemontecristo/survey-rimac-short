@@ -11,3 +11,4 @@ export * from './ButtomMobile';
 export * from './InputRimac';
 export * from './ItemRimac';
 export * from './ButtonAdd';
+export * from './InputSearch';
