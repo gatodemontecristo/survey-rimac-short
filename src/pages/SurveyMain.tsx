@@ -4,6 +4,7 @@ import { useStepProgress } from '../store';
 import {
   ButtonRimac,
   SlideExtra,
+  SlideFeedback,
   SlideFinish,
   SlideInformation01,
   SlideInformation02,
@@ -44,11 +45,12 @@ const componentMap: Record<string, ReactNode> = {
   SlideSuccess02: <SlideSuccess02 />,
   SlideSuccess03: <SlideSuccess03 />,
   SlideExtra: <SlideExtra />,
+  SlideFeedback: <SlideFeedback />,
   SlideFinish: <SlideFinish />,
 };
 export const SurveyMain = () => {
   const { backQuestion, indexSlide, slides, step } = useStepProgress();
-  const sum = Object.keys(slides).length - 18;
+  const sum = Object.keys(slides).length - 19;
 
   const getComponentByIndex = () => {
     const componentName = slides[step];
@@ -71,7 +73,7 @@ export const SurveyMain = () => {
             alt='logo'
             className='absolute top-5 right-5 w-16 md:w-20'
           ></img>
-          {step !== 0 && step !== 17 + sum && (
+          {step !== 0 && step !== 18 + sum && (
             <div className='md:py-10 py-5 absolute top-0 md:left-20 left-5 w-auto'>
               <ButtonRimac isNav={true} fnClick={backQuestion}></ButtonRimac>
             </div>

@@ -17,3 +17,4 @@ export * from './SlideSuccess02';
 export * from './SlideSuccess03';
 export * from './SlideExtra';
 export * from './SlideFinish';
+export * from './SlideFeedback';

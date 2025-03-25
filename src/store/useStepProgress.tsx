@@ -52,7 +52,8 @@ const initialState: useStepProgressState = {
     14: 'SlideInformation11',
     15: 'SlideInformation12',
     16: 'SlideInformation13',
-    17: 'SlideFinish',
+    17: 'SlideFeedback',
+    18: 'SlideFinish',
   },
   indexSlide: 0,
   indexExtra: 0,
@@ -76,7 +77,7 @@ export const useStepProgress = create(
       ...initialState,
       actionStep: (isMore) => {
         const { slides } = get();
-        const sum = Object.keys(slides).length - 18;
+        const sum = Object.keys(slides).length - 19;
 
         const valor = isMore ? get().step + 1 : get().step - 1;
         set({ step: valor });
@@ -107,7 +108,7 @@ export const useStepProgress = create(
               title: 'Antecendetes',
               state:
                 valor >= 12 + sum
-                  ? valor < 17 + sum
+                  ? valor < 18 + sum
                     ? 'active'
                     : 'completed'
                   : 'inactive',
@@ -135,7 +136,7 @@ export const useStepProgress = create(
           setExtra,
         } = get();
         if (step > 0) {
-          Object.keys(slides).length > 18 &&
+          Object.keys(slides).length > 19 &&
             indexExtra !== 0 &&
             10 + indexExtra >= indexSlide - 1 &&
             setExtra(indexExtra - 1);
