@@ -6,6 +6,11 @@ export interface ItemOption {
   label: string;
   value: string;
 }
+export interface ItemOptionInfo {
+  label: string;
+  value: string;
+  info: string;
+}
 
 export interface LabelRimacProps {
   size?: TailwindFontSize;

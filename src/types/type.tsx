@@ -18,3 +18,9 @@ export type TailwindJustify =
   | 'justify-between'
   | 'justify-around'
   | 'justify-evenly';
+
+export type TailwindPosition =
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right';

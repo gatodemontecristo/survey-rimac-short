@@ -1,8 +1,9 @@
 import React from 'react';
-import { ItemOption } from '../../../types';
+import { ItemOption, ItemOptionInfo } from '../../../types';
 import { nanoid } from 'nanoid';
+import { InformativeMsg } from '../text';
 interface CheckboxRimacProps {
-  options: ItemOption[];
+  options: ItemOption[] | ItemOptionInfo[];
   selectedValues: string[];
   onChange: (selectedValues: string[]) => void;
 }
@@ -23,9 +24,12 @@ export const CheckboxRimac: React.FC<CheckboxRimacProps> = ({
   };
 
   return (
-    <div className='flex flex-row text-start items-center  flex-wrap  gap-x-7 gap-y-3'>
+    <div className='flex flex-row text-center items-center  flex-wrap  gap-x-7 gap-y-3'>
       {options.map((option) => (
-        <label key={nanoid()} className='flex items-center space-x-2'>
+        <label
+          key={nanoid()}
+          className='flex flex-row justify-center items-center space-x-2'
+        >
           <input
             type='checkbox'
             checked={selectedValues.includes(option.value)}
@@ -35,6 +39,9 @@ export const CheckboxRimac: React.FC<CheckboxRimacProps> = ({
           <span className='text-rimac-black md:text-lg text-base'>
             {option.label}
           </span>
+          {'info' in option && option?.info && (
+            <InformativeMsg message={option.info} position='top-right' />
+          )}
         </label>
       ))}
     </div>
