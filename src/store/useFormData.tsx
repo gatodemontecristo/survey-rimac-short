@@ -21,7 +21,6 @@ export const useFormData = create(
         set((state) => {
           const updatedFormData = { ...state.formData, ...data };
           localStorage.setItem('formData', JSON.stringify(updatedFormData));
-          console.log(updatedFormData);
           return { formData: updatedFormData };
         });
       },

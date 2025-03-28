@@ -59,7 +59,7 @@ export const optionMedicine: ItemOptionInfo[] = [
   {
     value: '3',
     label: 'Antidiabéticos',
-    info: 'Para controlar el nivel deazúcar en la sangre de quienes tienen diabetes. Por ejemplo: metformina, insulina',
+    info: 'Para controlar el nivel de azúcar en la sangre de quienes tienen diabetes. Por ejemplo: metformina, insulina',
   },
   { value: '4', label: 'Ninguno', info: '' },
 ];

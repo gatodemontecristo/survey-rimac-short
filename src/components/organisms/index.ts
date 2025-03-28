@@ -18,3 +18,4 @@ export * from './SlideSuccess03';
 export * from './SlideExtra';
 export * from './SlideFinish';
 export * from './SlideFeedback';
+export * from './SlidePregnant';

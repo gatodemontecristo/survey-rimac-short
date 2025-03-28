@@ -28,7 +28,7 @@ const initialState: useStepProgressState = {
       img: '../icons/svgexport-2.svg',
     },
     {
-      title: 'Antecendetes',
+      title: 'Antecedentes',
       state: 'inactive',
       img: '../icons/svgexport-247.svg',
     },
@@ -67,6 +67,8 @@ export interface useStepProgressAction {
   backQuestion: () => void;
   addSlide: (pages: number) => void;
   removeSlide: () => void;
+  addPregnantSlide: () => void;
+  removePregnantSlide: () => void;
   resetStepProgress: () => void;
   setExtra: (indexExtra: number) => void;
 }
@@ -105,7 +107,7 @@ export const useStepProgress = create(
               img: '../icons/svgexport-2.svg',
             },
             {
-              title: 'Antecendetes',
+              title: 'Antecedentes',
               state:
                 valor >= 12 + sum
                   ? valor < 18 + sum
@@ -146,18 +148,61 @@ export const useStepProgress = create(
       },
 
       addSlide: (pages: number) => {
-        const { slides, setIndexSlide } = get();
+        const { slides } = get();
         set({ originalSlides: { ...slides } });
-        setIndexSlide(pages);
         const updatedSlides = { ...slides };
-
-        for (let i = Object.keys(updatedSlides).length - 1; i >= 11; i--) {
+        const key =
+          Number(
+            Object.entries(slides).find(
+              ([_, value]) => value === 'SlideInformation09',
+            )?.[0],
+          ) || 0;
+        for (let i = Object.keys(updatedSlides).length - 1; i >= key; i--) {
           updatedSlides[i + pages] = updatedSlides[i];
         }
         for (let i = 0; i < pages; i++) {
-          updatedSlides[11 + i] = 'SlideExtra';
+          updatedSlides[key + i] = 'SlideExtra';
         }
         set({ slides: updatedSlides });
+      },
+      addPregnantSlide: () => {
+        const { slides } = get();
+        const updatedSlides = { ...slides };
+        const exist =
+          Number(
+            Object.entries(slides).find(
+              ([_, value]) => value === 'SlidePregnant',
+            )?.[0] || 0,
+          ) || 0;
+        if (exist === 0) {
+          const key =
+            Number(
+              Object.entries(slides).find(
+                ([_, value]) => value === 'SlideInformation12',
+              )?.[0] || 0,
+            ) || 0;
+          for (let i = Object.keys(updatedSlides).length - 1; i >= key; i--) {
+            updatedSlides[i + 1] = updatedSlides[i];
+          }
+          updatedSlides[key] = 'SlidePregnant';
+          set({ slides: updatedSlides });
+        }
+      },
+      removePregnantSlide: () => {
+        const { slides } = get();
+        const updatedSlides = { ...slides };
+        const key =
+          Number(
+            Object.entries(slides).find(
+              ([_, value]) => value === 'SlidePregnant',
+            )?.[0] || 0,
+          ) || 0;
+        if (key !== 0) {
+          for (let i = Object.keys(updatedSlides).length - 1; i >= key; i--) {
+            updatedSlides[i - 1] = updatedSlides[i];
+          }
+          set({ slides: updatedSlides });
+        }
       },
       removeSlide: () => {
         const { originalSlides, setExtra } = get();

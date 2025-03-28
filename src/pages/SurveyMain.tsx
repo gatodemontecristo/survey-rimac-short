@@ -19,6 +19,7 @@ import {
   SlideInformation11,
   SlideInformation12,
   SlideInformation13,
+  SlidePregnant,
   SlideSuccess01,
   SlideSuccess02,
   SlideSuccess03,
@@ -47,6 +48,7 @@ const componentMap: Record<string, ReactNode> = {
   SlideExtra: <SlideExtra />,
   SlideFeedback: <SlideFeedback />,
   SlideFinish: <SlideFinish />,
+  SlidePregnant: <SlidePregnant />,
 };
 export const SurveyMain = () => {
   const { backQuestion, indexSlide, slides, step } = useStepProgress();
@@ -58,7 +60,7 @@ export const SurveyMain = () => {
   };
 
   return (
-    <div className='md:h-screen w-full md:w-3/4 flex justify-center items-center  bg-rimac-red'>
+    <div className='md:h-screen w-full md:w-3/4 flex justify-center items-center  bg-rimac-red '>
       <AnimatePresence mode='wait'>
         <motion.div
           key={indexSlide}
