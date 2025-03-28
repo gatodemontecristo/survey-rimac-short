@@ -56,11 +56,6 @@ export const SlideExtra = () => {
 
   const onSubmit = () => {
     saveFormData(getValues());
-    console.log('indexExtra', indexExtra);
-    console.log(
-      'formData.selectedDiagnoses.length ',
-      formData.selectedDiagnoses.length,
-    );
 
     if (formData.selectedDiagnoses.length > indexExtra + 1) {
       setExtra(indexExtra + 1);

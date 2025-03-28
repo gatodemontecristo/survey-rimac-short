@@ -66,18 +66,17 @@ export const SlideInformation08 = () => {
     const updatedDiagnoses = [...collectionDiagnosis, selectedDiagnosis];
     setSelectedDiagnoses(updatedDiagnoses);
     setValue('selectedDiagnoses', updatedDiagnoses);
-    removeSlide();
   };
 
   const handleRemoveDiagnosis = (diagnosis: ItemOption) => {
     const updatedDiagnoses = selectedDiagnoses.filter((d) => d !== diagnosis);
     setSelectedDiagnoses(updatedDiagnoses);
     setValue('selectedDiagnoses', updatedDiagnoses);
-    removeSlide();
   };
 
   const onSubmit = () => {
     removeSpecificFields();
+    removeSlide();
     addSlide(selectedDiagnoses.length);
     saveFormData(getValues());
     nextQuestion();

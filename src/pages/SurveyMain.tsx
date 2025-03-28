@@ -56,7 +56,8 @@ export const SurveyMain = () => {
     const componentName = slides[step];
     return componentMap[componentName] || null;
   };
-
+  console.log('slides', slides);
+  console.log('step', step);
   return (
     <div className='md:h-screen w-full md:w-3/4 flex justify-center items-center  bg-rimac-red '>
       <AnimatePresence mode='wait'>
