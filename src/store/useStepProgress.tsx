@@ -28,7 +28,7 @@ const initialState: useStepProgressState = {
       img: '../icons/svgexport-2.svg',
     },
     {
-      title: 'Antecendetes',
+      title: 'Antecedentes',
       state: 'inactive',
       img: '../icons/svgexport-247.svg',
     },
@@ -105,7 +105,7 @@ export const useStepProgress = create(
               img: '../icons/svgexport-2.svg',
             },
             {
-              title: 'Antecendetes',
+              title: 'Antecedentes',
               state:
                 valor >= 12 + sum
                   ? valor < 18 + sum

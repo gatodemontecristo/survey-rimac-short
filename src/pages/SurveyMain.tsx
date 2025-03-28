@@ -58,7 +58,7 @@ export const SurveyMain = () => {
   };
 
   return (
-    <div className='md:h-screen w-full md:w-3/4 flex justify-center items-center  bg-rimac-red'>
+    <div className='md:h-screen w-full md:w-3/4 flex justify-center items-center  bg-rimac-red '>
       <AnimatePresence mode='wait'>
         <motion.div
           key={indexSlide}
