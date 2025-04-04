@@ -48,7 +48,7 @@ export const SlideInformation09 = () => {
             size={textLabel}
             text='En los últimos 10 años, ¿para cuáles de estas afecciones le ha diagnosticado o tratado un profesional médico autorizado?'
           ></QuestionRimac.Label>
-          <QuestionRimac.Info text='Por favor sellecione todas las respuestas válidas.'></QuestionRimac.Info>
+          <QuestionRimac.Info text='Por favor seleccione todas las respuestas válidas.'></QuestionRimac.Info>
           <MultiCheckboxForm
             {...{ control }}
             name='checkMedicine'
