@@ -90,6 +90,9 @@ export const SlideInformation08 = () => {
     nextQuestion();
   };
   const textSize = isMobile ? 'text-2xl' : 'text-4xl';
+  const placeholderText = isMobile
+    ? 'Diagnóstico'
+    : 'tSelecciona un diagnóstico';
   return (
     <div className='flex flex-row items-center justify-start w-4/5 gap-4 md:py-10 py-20 md:pr-15 pr-0 md:h-screen min-h-screen max-h-fit md:overflow-y-scroll custom-scrollbar'>
       <div className='flex flex-col items-start justify-start md:text-justify text-start gap-4 w-full'>
@@ -116,7 +119,7 @@ export const SlideInformation08 = () => {
                   ? errors.additionalDiag.message
                   : undefined
               }
-              placeholder='Selecciona un diagnóstico'
+              placeholder={placeholderText}
               isDisabled={watchCheckNone}
             ></SelectRimac>
             {isMobile ? (
