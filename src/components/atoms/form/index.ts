@@ -12,3 +12,4 @@ export * from './InputRimac';
 export * from './ItemRimac';
 export * from './ButtonAdd';
 export * from './InputSearch';
+export * from './CheckboxAlone';

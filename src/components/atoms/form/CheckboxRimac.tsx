@@ -24,7 +24,7 @@ export const CheckboxRimac: React.FC<CheckboxRimacProps> = ({
   };
 
   return (
-    <div className='flex flex-row text-center items-center  flex-wrap  gap-x-7 gap-y-3'>
+    <div className='flex flex-row md:text-center text-start items-center  flex-wrap  gap-x-7 gap-y-3'>
       {options.map((option) => (
         <label
           key={nanoid()}

@@ -7,16 +7,19 @@ interface ButtonRimacProps {
   fnClick: () => void;
   className?: string;
   isNav?: boolean;
+  disabled?: boolean;
 }
 export const ButtonRimac = ({
   text = '',
   fnClick,
   className,
   isNav = false,
+  disabled = false,
 }: ButtonRimacProps) => {
   return (
     <button
       onClick={fnClick}
+      disabled={disabled}
       className={clsx(isNav ? 'button-reverse' : 'button-circle', className)}
     >
       {isNav ? (
