@@ -150,3 +150,23 @@
 .button-reverse-mb:hover::after {
   clip-path: circle(100%);
 }
+
+button:disabled {
+  background-color: #d1d5db;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.6;
+  border: 0px;
+}
+button:disabled:hover {
+  background-color: #d1d5db;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+button:disabled::after {
+  background-color: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

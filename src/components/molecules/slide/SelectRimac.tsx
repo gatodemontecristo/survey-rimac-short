@@ -5,6 +5,7 @@ import { ErrorMsg, InputSelect } from '../../atoms';
 interface SelectRimacProps extends ReactFormProps {
   itemOptions: ItemOption[];
   placeholder: string;
+  isDisabled?: boolean;
 }
 export const SelectRimac = ({
   name,
@@ -12,6 +13,7 @@ export const SelectRimac = ({
   message,
   itemOptions,
   placeholder,
+  isDisabled,
 }: SelectRimacProps) => {
   return (
     <>
@@ -25,6 +27,7 @@ export const SelectRimac = ({
               placeholder={placeholder}
               value={field.value}
               onChange={field.onChange}
+              isDisabled={isDisabled}
             />
           )}
         />

@@ -1,4 +1,4 @@
-import { ButtomMobile, ButtonAdd, ButtonRimac } from '../atoms';
+import { ButtomMobile, ButtonAdd, ButtonRimac, CheckboxAlone } from '../atoms';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -10,18 +10,23 @@ import { useState } from 'react';
 import { ItemOption } from '../../types';
 import { Notyf } from 'notyf';
 
-const schema = yup.object().shape({
-  additionalDiag: yup.object({
-    label: yup.string(),
-    value: yup.string(),
-  }),
-  selectedDiagnoses: yup
-    .array()
-    .min(1, 'Debes añadir al menos un diagnóstico')
-    .required('Debes añadir al menos un diagnóstico'),
-});
-
 export const SlideInformation08 = () => {
+  const schema = yup.object().shape({
+    additionalDiag: yup.object({
+      label: yup.string(),
+      value: yup.string(),
+    }),
+
+    checkNone: yup.boolean(),
+    selectedDiagnoses: yup.array().when([], {
+      is: () => !watchCheckNone,
+      then: (schema) =>
+        schema
+          .min(1, 'Debes añadir al menos un diagnóstico')
+          .required('Debes añadir al menos un diagnóstico'),
+      otherwise: (schema) => schema.notRequired(),
+    }),
+  });
   const { saveFormData, formData, removeSpecificFields } = useFormData();
   const [selectedDiagnoses, setSelectedDiagnoses] = useState<ItemOption[]>(
     formData.selectedDiagnoses || [],
@@ -31,12 +36,14 @@ export const SlideInformation08 = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    watch,
     getValues,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
       additionalDiag: undefined,
       selectedDiagnoses: formData.selectedDiagnoses || [],
+      checkNone: formData.checkNone || false,
     },
   });
   const notyf = new Notyf();
@@ -44,10 +51,11 @@ export const SlideInformation08 = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const textLabel = isMobile ? 'text-xl' : 'text-2xl';
   const { nextQuestion, addSlide, removeSlide } = useStepProgress();
+  const watchCheckNone = watch('checkNone');
 
   const handleAddDiagnosis = () => {
     const selectedDiagnosis = getValues('additionalDiag');
-    const collectionDiagnosis = getValues('selectedDiagnoses');
+    const collectionDiagnosis = getValues('selectedDiagnoses') || [];
 
     if (!selectedDiagnosis) {
       notyf.error({
@@ -109,17 +117,38 @@ export const SlideInformation08 = () => {
                   : undefined
               }
               placeholder='Selecciona un diagnóstico'
+              isDisabled={watchCheckNone}
             ></SelectRimac>
             {isMobile ? (
-              <ButtonAdd fnClick={handleAddDiagnosis}></ButtonAdd>
+              <ButtonAdd
+                fnClick={handleAddDiagnosis}
+                disabled={watchCheckNone}
+              ></ButtonAdd>
             ) : (
               <ButtonRimac
                 text='Añadir'
                 fnClick={handleAddDiagnosis}
+                disabled={watchCheckNone}
               ></ButtonRimac>
             )}
           </div>
         </QuestionRimac>
+        {selectedDiagnoses.length === 0 && (
+          <CheckboxAlone
+            option={{
+              label: 'No tengo ningún diagnóstico',
+              value: 'checkNone',
+            }}
+            className='ms-3'
+            name='checkNone'
+            control={control}
+            message={
+              typeof errors?.checkNone?.message === 'string'
+                ? errors.checkNone.message
+                : undefined
+            }
+          ></CheckboxAlone>
+        )}
         <ItemCollection
           message={
             typeof errors?.selectedDiagnoses?.message === 'string'

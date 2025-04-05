@@ -11,6 +11,7 @@ interface InputSelectProps {
   placeholder?: string;
   value: Option | null;
   onChange: (selectedOption: Option | null) => void;
+  isDisabled?: boolean;
 }
 
 export const InputSelect = ({
@@ -18,6 +19,7 @@ export const InputSelect = ({
   placeholder,
   value,
   onChange,
+  isDisabled = false,
 }: InputSelectProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const handleFocus = () => setIsFocused(true);
@@ -38,6 +40,7 @@ export const InputSelect = ({
         className='w-full  rounded  font-br-sonoma  md:text-xl text-lg  focus:outline-none focus:border-blue-500 border-none'
         classNamePrefix='react-select'
         required={false}
+        isDisabled={isDisabled}
       />
       <label
         className={`absolute left-7    font-br-sonoma   transition-all duration-300 ease-in-out ${

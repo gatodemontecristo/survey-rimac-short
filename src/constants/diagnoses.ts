@@ -106,6 +106,5 @@ export const anotherOptions: ItemOption[] = [
   { value: 'leucemia_linfoide', label: 'Leucemia Linfoide' },
   { value: 'leucemia_mieloide', label: 'Leucemia Mieloide' },
   { value: 'vitiligo', label: 'Vitiligo' },
-  { value: 'ninguna', label: 'Ninguna' },
   { value: 'otros', label: 'Otros' },
 ];
