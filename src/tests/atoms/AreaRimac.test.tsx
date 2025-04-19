@@ -12,7 +12,7 @@ describe('AreaRimac Component', () => {
     onChange: mockOnChange,
   };
 
-  it('debería renderizar correctamente con las props iniciales', () => {
+  it('it should render correctly with the initial props', () => {
     render(<AreaRimac {...defaultProps} />);
     const textarea = screen.getByRole('textbox');
     expect(textarea).toBeInTheDocument();
@@ -21,26 +21,26 @@ describe('AreaRimac Component', () => {
     expect(screen.getByText('0/100')).toBeInTheDocument();
   });
 
-  it('debería mostrar el placeholder correctamente', () => {
+  it('it should display the placeholder correctly.', () => {
     render(<AreaRimac {...defaultProps} />);
     const label = screen.getByText('Escribe aquí...');
     expect(label).toBeInTheDocument();
     expect(label).toHaveClass('text-gray-500');
   });
 
-  it('debería actualizar el valor al escribir en el textarea', () => {
+  it('it should update the value when writing to the text area', () => {
     render(<AreaRimac {...defaultProps} />);
     const textarea = screen.getByRole('textbox');
     fireEvent.change(textarea, { target: { value: 'Hola, mundo!' } });
     expect(mockOnChange).toHaveBeenCalledWith('Hola, mundo!');
   });
 
-  it('debería mostrar el contador de caracteres correctamente', () => {
+  it('it should display the character counter correctly', () => {
     render(<AreaRimac {...defaultProps} value='Hola' />);
     expect(screen.getByText('4/100')).toBeInTheDocument();
   });
 
-  it('debería aplicar la clase de enfoque al hacer focus', () => {
+  it('it should apply the focus class when focusing', () => {
     render(<AreaRimac {...defaultProps} />);
     const textarea = screen.getByRole('textbox');
     fireEvent.focus(textarea);
@@ -48,7 +48,7 @@ describe('AreaRimac Component', () => {
     expect(label).toHaveClass('text-blue-500');
   });
 
-  it('debería eliminar la clase de enfoque al hacer blur si el valor está vacío', () => {
+  it('it should remove the focus class when blurring if the value is empty', () => {
     render(<AreaRimac {...defaultProps} />);
     const textarea = screen.getByRole('textbox');
     fireEvent.focus(textarea);
@@ -57,7 +57,7 @@ describe('AreaRimac Component', () => {
     expect(label).toHaveClass('text-gray-500');
   });
 
-  it('debería mantener la clase de enfoque al hacer blur si el valor no está vacío', () => {
+  it('it should keep the focus class when blurring if the value is not empty', () => {
     render(<AreaRimac {...defaultProps} value='Hola' />);
     const textarea = screen.getByRole('textbox');
     fireEvent.focus(textarea);
