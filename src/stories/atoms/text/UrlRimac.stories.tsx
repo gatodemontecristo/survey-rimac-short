@@ -4,6 +4,10 @@ import { UrlRimac } from '../../../components';
 const meta: Meta<typeof UrlRimac> = {
   title: 'atoms/text/UrlRimac',
   component: UrlRimac,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   args: {
     text: 'Click here',
     url: 'https://www.rimac.com/',

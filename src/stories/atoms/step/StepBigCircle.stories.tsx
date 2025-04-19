@@ -4,6 +4,10 @@ import { StepBigCircle } from '../../../components';
 const meta: Meta<typeof StepBigCircle> = {
   title: 'atoms/step/StepBigCircle',
   component: StepBigCircle,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     title: { control: 'text' },
     state: {
@@ -37,7 +41,7 @@ export const Active: Story = {
   args: {
     title: 'Step Active',
     state: 'active',
-    img: '../icons/svgexport-118-dark.svg',
+    img: '../icons/svgexport-118.svg',
   },
   parameters: {
     backgrounds: {

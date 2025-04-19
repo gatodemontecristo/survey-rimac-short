@@ -4,6 +4,10 @@ import { StepCircle } from '../../../components';
 export default {
   title: 'atoms/step/StepCircle',
   component: StepCircle,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     title: { control: 'text' },
     state: { control: 'radio', options: ['inactive', 'active', 'completed'] },

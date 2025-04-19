@@ -5,6 +5,10 @@ import { StepHorizontal } from '../../components';
 const meta: Meta<typeof StepHorizontal> = {
   title: 'molecules/StepHorizontal',
   component: StepHorizontal,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   decorators: [
     (Story) => {
       useStepProgress.setState({

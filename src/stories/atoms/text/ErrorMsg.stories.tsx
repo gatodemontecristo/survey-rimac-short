@@ -4,6 +4,10 @@ import { ErrorMsg } from '../../../components';
 const meta: Meta<typeof ErrorMsg> = {
   title: 'atoms/text/ErrorMsg',
   component: ErrorMsg,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   args: {
     message: 'This is an error message',
   },
