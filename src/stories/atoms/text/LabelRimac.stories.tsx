@@ -4,6 +4,10 @@ import { LabelRimac } from '../../../components';
 const meta: Meta<typeof LabelRimac> = {
   title: 'atoms/text/LabelRimac',
   component: LabelRimac,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   args: {
     text: 'Regular text',
     special: 'Highlighted',

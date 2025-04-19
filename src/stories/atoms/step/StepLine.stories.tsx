@@ -4,6 +4,10 @@ import { StepLine } from '../../../components';
 const meta: Meta<typeof StepLine> = {
   title: 'atoms/step/StepLine',
   component: StepLine,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   args: {
     type: 'line',
   },

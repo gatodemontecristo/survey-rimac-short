@@ -4,6 +4,10 @@ import { InfoRimac } from '../../../components';
 const meta: Meta<typeof InfoRimac> = {
   title: 'atoms/text/InfoRimac',
   component: InfoRimac,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   args: {
     text: 'This is an informative text.\nYou can add line breaks!',
     className: '',
