@@ -14,8 +14,13 @@ const meta: Meta<typeof StepCompleted> = {
     reverse: {
       control: 'boolean',
       description: 'Invierte los colores del texto',
+      defaultValue: false,
     },
-    img: { control: 'text', description: 'URL de la imagen para el círculo' },
+    img: {
+      control: 'text',
+      description: 'URL de la imagen para el círculo',
+      defaultValue: '../icons/svgexport-247.svg',
+    },
   },
 };
 export default meta;

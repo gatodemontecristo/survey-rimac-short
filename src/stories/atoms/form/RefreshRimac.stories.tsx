@@ -4,6 +4,10 @@ import { RefreshRimac } from '../../../components';
 const meta: Meta<typeof RefreshRimac> = {
   title: 'atoms/form/RefreshRimac',
   component: RefreshRimac,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     fnClick: { action: 'clicked' },
     className: { control: 'text' },

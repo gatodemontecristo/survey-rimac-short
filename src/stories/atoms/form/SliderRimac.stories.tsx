@@ -5,6 +5,10 @@ import { SliderRimac } from '../../../components';
 const meta: Meta<typeof SliderRimac> = {
   title: 'atoms/form/SliderRimac',
   component: SliderRimac,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     min: { control: 'number' },
     max: { control: 'number' },

@@ -5,6 +5,10 @@ import { InputSelect, Option } from '../../../components';
 const meta: Meta<typeof InputSelect> = {
   title: 'atoms/form/InputSelect',
   component: InputSelect,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     options: { control: 'object' },
     placeholder: { control: 'text' },

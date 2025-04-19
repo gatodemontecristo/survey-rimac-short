@@ -6,6 +6,7 @@ import { CheckboxRimac } from '../../../components';
 const meta: Meta<typeof CheckboxRimac> = {
   title: 'atoms/form/CheckboxRimac',
   component: CheckboxRimac,
+
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',

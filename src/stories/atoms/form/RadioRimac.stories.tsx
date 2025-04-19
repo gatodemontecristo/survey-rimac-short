@@ -5,6 +5,10 @@ import { RadioRimac } from '../../../components';
 const meta: Meta<typeof RadioRimac> = {
   title: 'atoms/form/RadioRimac',
   component: RadioRimac,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     name: { control: 'text' },
     value: { control: 'text' },
