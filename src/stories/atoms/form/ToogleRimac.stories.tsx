@@ -5,6 +5,10 @@ import { ToogleRimac } from '../../../components';
 const meta: Meta<typeof ToogleRimac> = {
   title: 'atoms/form/ToogleRimac',
   component: ToogleRimac,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     text: { control: 'text' },
     className: { control: 'text' },

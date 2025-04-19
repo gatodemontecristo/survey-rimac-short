@@ -5,6 +5,10 @@ import { InputRimac } from '../../../components';
 const meta: Meta<typeof InputRimac> = {
   title: 'atoms/form/InputRimac',
   component: InputRimac,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     placeholder: { control: 'text' },
     value: { control: 'text' },
