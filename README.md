@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+<a id="readme-top"></a>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gatodemontecristo_survey-rimac-short&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gatodemontecristo_survey-rimac-short)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=gatodemontecristo_survey-rimac-short&metric=bugs)](https://sonarcloud.io/summary/new_code?id=gatodemontecristo_survey-rimac-short)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=gatodemontecristo_survey-rimac-short&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=gatodemontecristo_survey-rimac-short)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=gatodemontecristo_survey-rimac-short&metric=coverage)](https://sonarcloud.io/summary/new_code?id=gatodemontecristo_survey-rimac-short)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=gatodemontecristo_survey-rimac-short&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=gatodemontecristo_survey-rimac-short)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-## Expanding the ESLint configuration
+  <img src="https://github.com/user-attachments/assets/6e22153b-7cb1-4340-a065-a854108ebaa7" alt="Logo" width="80" height="80">
+  <img src="https://sonarcloud.io/api/project_badges/quality_gate?project=gatodemontecristo_survey-rimac-short" alt="Logo" width="80" height="80"/>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  <h3 align="center">Rimac Survey Short 2025</h3>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+  <p align="center">
+    Survey based on Rimac's DPS to choose the best insurance plan
+    <br />
+    <a href="https://gadhagod.github.io/Hyrule-Compendium-API/#/"><strong>More about Rimac Insurance »</strong></a>
+    <br />
+    <br />
+    <a href="https://survey-rimac-short.vercel.app">View Demo</a>
+    &middot;
+    <a href="https://trello.com/b/VAZlzUEJ">Trello dashboard</a>
+  </p>
+</div>
