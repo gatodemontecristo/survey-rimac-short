@@ -23,6 +23,7 @@ const config: Config = {
     '/router/',
     '/store/',
     '/components/organisms',
+    'index.css',
   ],
 };
 
