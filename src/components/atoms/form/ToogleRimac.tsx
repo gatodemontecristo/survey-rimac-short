@@ -47,9 +47,15 @@ export const ToogleRimac = ({
           )}
         >
           {isOn ? (
-            <FaCheck className='w-5 h-5 text-rimac-black' />
+            <FaCheck
+              data-testid='icon-check'
+              className='w-5 h-5 text-rimac-black'
+            />
           ) : (
-            <FaTimes className='w-5 h-5 text-rimac-black' />
+            <FaTimes
+              data-testid='icon-times'
+              className='w-5 h-5 text-rimac-black'
+            />
           )}
         </div>
       </button>
