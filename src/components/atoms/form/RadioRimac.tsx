@@ -23,10 +23,10 @@ export const RadioRimac = React.forwardRef<HTMLInputElement, RadioRimacProps>(
             onChange={() => onChange(value)}
           />
           <div className='custom-radio'></div>
+          <span className='radio-label font-br-sonoma md:text-lg text-base'>
+            {label}
+          </span>
         </label>
-        <span className='radio-label font-br-sonoma md:text-lg text-base'>
-          {label}
-        </span>
       </div>
     );
   },
