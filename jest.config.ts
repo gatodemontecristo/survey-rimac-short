@@ -19,6 +19,10 @@ const config: Config = {
     '/coverage/',
     '/stories/',
     '/fonts/',
+    '/constants/',
+    '/router/',
+    '/store/',
+    '/components/organisms',
   ],
 };
 
